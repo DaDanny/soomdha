@@ -1,0 +1,99 @@
+<ion-view view-title="Account" >
+
+
+	<ion-nav-buttons side="primary" >
+		<button class="button button-clear"
+		        ng-click="logout()" >Logout
+		</button >
+	</ion-nav-buttons >
+
+	<ion-content padding="true">
+
+
+		<form name="signupForm"
+		      novalidate=""
+		      ng-submit="submit(signupForm)" >
+
+
+			<ion-list >
+
+				<label class="item item-input item-floating-label"
+				       ng-class="{'has-error':signupForm.name.$invalid}" >
+					<span class="input-label" >Name</span >
+					<input type="text"
+					       placeholder="Name"
+					       name="name"
+					       ng-model="formData.name"
+					       ng-required="true" >
+				</label >
+				<div class="form-errors"
+				     ng-messages="signupForm.name.$error">
+				     <div ng-messages-include="templates/form-errors.html"></div>
+				</div >
+
+
+                <label class="item item-input item-floating-label"
+				       ng-class="{'has-error':signupForm.city.$invalid}" >
+					<span class="input-label" >City</span >
+					<input type="text"
+					       placeholder="City"
+					       name="city"
+					       ng-model="formData.city"
+					       ng-required="false" >
+				</label >
+				<div class="form-errors"
+				     ng-messages="signupForm.name.$error">
+				     <div ng-messages-include="templates/form-errors.html"></div>
+				</div >
+
+                <label class="item item-input item-floating-label"
+				       ng-class="{'has-error':signupForm.name.$invalid}" >
+					<span class="input-label" >Sex</span >
+					<input type="text"
+					       placeholder="Sex"
+					       name="sex"
+					       ng-model="formData.sex"
+					       >
+				</label >
+				<div class="form-errors"
+				     ng-messages="signupForm.name.$error">
+				     <div ng-messages-include="templates/form-errors.html"></div>
+				</div >
+
+                <label class="item item-input item-floating-label"
+				       ng-class="{'has-error':signupForm.phone.$invalid}" >
+					<span class="input-label" >Phone</span >
+					<input type="number"
+					       placeholder="Phone"
+					       name="phone"
+					       ng-model="formData.phone"
+					       ng-required="false" >
+				</label >
+				<div class="form-errors"
+				     ng-messages="signupForm.phone.$error">
+				     <div ng-messages-include="templates/form-errors.html"></div>
+				</div >
+
+
+				<label class="item item-input item-floating-label"
+				       ng-class="{'has-error':signupForm.email.$invalid}" >
+					<span class="input-label" >Email</span >
+					<input type="email"
+					       placeholder="Email"
+					       name="email"
+					       ng-model="formData.email"
+					       ng-required="true"
+            ng-disabled="true">
+				</label >
+				<div class="form-errors"
+				     ng-messages="signupForm.email.$error">
+				     <div ng-messages-include="templates/form-errors.html"></div>
+				</div >
+
+			</ion-list >
+			<button class="button button-royal button-block"
+			        type="submit" >Save
+			</button >
+		</form >
+	</ion-content >
+</ion-view >

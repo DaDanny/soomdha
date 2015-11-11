@@ -1,0 +1,226 @@
+.create-form {
+  .calories {
+    float: right;
+    //margin-right: $content-padding;
+  }
+  .picture {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.form-error{
+  color: red;
+  text-transform: uppercase;
+  font-size: 12px;
+  text-overflow: ellipsis;
+}
+
+.item-desc{
+  height: 90px;
+}
+
+.item-card {
+  .calories {
+    float: right;
+    font-weight: bold;
+  }
+  .category {
+    color: lightgray;
+
+  }
+}
+
+.category-card{
+  margin: 0;
+}
+.item-title{
+  text-decoration: none;
+  color: #886aea;
+  display: flex;
+  height: 45px;
+  justify-content: center;
+  align-items: center;
+}
+a{
+  color: #886aea;
+  text-decoration: none;
+}
+
+.meal-list-stats{
+  margin-top: 4px;
+  bottom: 0;
+  font-size: 13px;
+  i{
+    margin-right: 10px;
+  }
+  .owner-meal{
+    float: right;
+    color: #886aea;
+  }
+}
+
+// Meal Styling
+
+.meal-stats{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 12px;
+  div{
+    i{
+      font-size: 16px;
+    }
+  }
+}
+
+.meal-action-buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #886aea;
+}
+
+.favorite-meal{
+  color: white !important;
+  i{
+    color: white;
+  }
+}
+
+.no-favorites{
+  display: flex;
+  align-items: center;
+  margin-top: 50%;
+  justify-content: center;
+}
+
+.meal-description{
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.detail-header{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.meal-info{
+  display:flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  .meal-price-date{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row nowrap;
+    width: 100%;
+    margin-top: 10px;
+    #price{
+      font-size: 12px;
+    }
+    #posted{
+      font-size: 10px;
+    }
+  }
+  .meal-desc{
+    font-size: 16px;
+    font-style: italic;
+    color: #634C73;
+  }
+}
+#comments {
+  text-align: center;
+  font-weight: 300;
+  font-size: 20px;
+  margin: 14px auto;
+
+}
+.meal-new-comment{
+  display: flex;
+  display: -ms-flex;
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-comment-textarea{
+  flex-grow: 6;
+  background-color: #D3D3D3;
+  border: 1px solid black;
+  height: 80px;
+  padding: 4px;
+}
+
+.comment-submit{
+  flex-grow: 1;
+  height: 80px;
+  background-color: #886aea;
+  color: white;
+  text-align: center;
+  line-height: 80px;
+}
+
+.comment-phone{
+  margin-top: 4px;
+  display: flex;
+  display: -ms-flex;
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  input{
+    margin-left: 4px;
+    padding: 4px;
+    background-color: #D3D3D3;
+    border: 1px solid black;
+    width: 100%;
+  }
+}
+
+.seller-comment {
+  color: #886aea;
+
+}
+
+.comment-date{
+  font-size: 10px;
+  float: right;
+}
+
+.disable-btn{
+  background-color: #D3D3D3;
+}
+
+.popup-container .popup{
+  background-color: white;
+}
+
+.comment-action-buttons{
+  color: red;
+  i{
+    float: right;
+  }
+  .contact-call{
+    color: #886aea;
+    i{
+      float: left;
+    }
+  }
+}
+
+.liked-meal {
+  color: white !important;
+  i{
+    color: white;
+  }
+}

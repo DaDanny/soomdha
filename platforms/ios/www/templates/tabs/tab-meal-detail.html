@@ -1,0 +1,145 @@
+
+<ion-view title="">
+  <ion-nav-back-button class="button-icon icon ion-chevron-left">
+    Back
+  </ion-nav-back-button>
+  <ion-content has-header="true" padding="true" delegate-handle="detailScroller">
+    <div class="detail-header">
+      {{mealAttr.title}}
+    </div>
+    <div class="list card">
+      <div class="meal-stats">
+        <div class="meal-likes">
+          <i class="icon ion-thumbsup"></i> {{likes.length}}
+        </div>
+        <div class="meal-comments">
+          <i class="icon ion-chatbox"></i> {{comments.length}}
+        </div>
+      </div>
+
+      <div class="item item-image">
+        <ion-slide-box on-slide-changed="slideHasChanged($index)" ng-if="mealAttr.photos.length >0" ng-if="showPhotos">
+          <ion-slide>
+            <div class="box" ng-click="showPhoto(main)">
+              <img ng-src="{{mealAttr.mainPicture}}" ng-error-src="img/camera.svg">
+            </div>
+          </ion-slide>
+          <ion-slide ng-repeat="photo in mealAttr.photos" >
+            <div class="box " ng-click="showPhoto(photo)">
+              <img ng-src="{{photo}}" ng-error-src="img/camera.svg">
+            </div>
+
+          </ion-slide>
+        </ion-slide-box>
+        <img ng-src="{{mealAttr.mainPicture}}" ng-error-src="img/camera.svg" ng-if="mealAttr.photos.length ==0"  ng-click="showPhoto(main)">
+
+      </div>
+
+      <div class="meal-action-buttons" ng-if="owner != userId">
+        <div class="tab-item" ng-click="likeMeal()" ng-class="{'liked-meal': liked}">
+          <i class="icon ion-thumbsup"></i>
+          Like
+        </div>
+
+
+        <div class="tab-item" ng-click="goToComments()">
+          <i class="icon ion-chatbox"></i>
+          Comment
+        </div>
+
+        <div class="tab-item" ng-click="favoriteMeal()" ng-class="{'favorite-meal': favorite}">
+          <i ng-class="favorite ?  'icon ion-ios-heart' : 'icon ion-ios-heart-outline'"></i>
+          Favorite
+        </div>
+
+
+        <a class="tab-item" href="tel:{{phone}}">
+          <i class="icon ion-ios-telephone"></i>
+          Call
+        </a>
+
+      </div>
+      <div class="meal-action-buttons" ng-if="owner == userId">
+
+        <div class="tab-item" ng-click="deleteItem()">
+          <i class="icon ion-trash-a"></i>
+          Delete
+        </div>
+
+        <div class="tab-item" ng-click="addPhoto()">
+          <i class="icon ion-camera"></i>
+          Add Photo
+        </div>
+
+        <div class="tab-item" ng-click="goToComments()">
+          <i class="icon ion-chatbox"></i>
+          Comment
+        </div>
+
+      </div>
+
+      <div class="meal-info">
+        <div class="meal-desc">
+          {{mealAttr.description}}
+        </div>
+        <div class="meal-price-date">
+          <div id="price">
+            {{mealAttr.price | currency}}
+          </div>
+          <div id="posted">
+            Posted : {{mealAttr.created | date: 'short'}}
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="list-card meal-comments">
+      <h5>Add comment</h5>
+      <div class="meal-new-comment">
+        <textarea type="text"
+                  placeholder="Your Comment"
+                  ng-model="$parent.newComment"
+                  class="new-comment-textarea" id="newComment"
+                  focus-me="{{focusComment}}">
+
+        </textarea>
+        <div class="comment-submit"
+             ng-class="{'disable-btn' : newComment.length == 0}"
+             ng-click="submitComment()">
+          <i class="icon ion-paper-airplane"> Submit</i>
+        </div>
+      </div>
+      <div class="comment-phone" ng-if="owner != userId">
+        Contact: <input type="text"
+                        placeholder="Your number"
+                        ng-model="phone">
+      </div>
+      <h1 id="comments">Comments:</h1>
+
+      <div class="list" ng-if="comments.length > 0" ng-repeat="comment in comments | orderBy : '-sent' track by comment.commentId">
+
+        <div class="item item-divider" ng-class="{'seller-comment' : comment.ownerId == owner}">
+          {{comment.sender}}
+          <small class="comment-date">Sent: {{comment.sent | date: "short"}}</small>
+        </div>
+
+        <div class="item comment-body" >
+          {{comment.comment}}
+        </div>
+
+        <div class="item item-divider comment-action-buttons" ng-if="owner == userId" >
+          <a class="contact-call" href="tel:{{phone}}" ng-if="comment.ownerId != userId">
+            <i class="icon ion-ios-telephone" > Call</i>
+          </a>
+          <div class="delete-comment" ng-click="deleteComment(comment)">
+            <i class="icon ion-trash-a"> Delete</i>
+          </div>
+        </div>
+        <div class="item item-divider comment-action-buttons" ng-if="owner != userId && comment.ownerId == userId" ng-click="deleteComment(comment)">
+          <i class="icon ion-trash-a"> Delete</i>
+        </div>
+
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

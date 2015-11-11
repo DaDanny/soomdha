@@ -1,0 +1,36 @@
+<ion-view view-title="My Favorites" >
+
+	<ion-content>
+
+    <div class="list" ng-if="favorites.length >0">
+      <a ng-repeat="meal in favorites"
+         href="#/tab/meal/{{meal.objectId}}"
+         class="item item-thumbnail-left">
+
+        <img ng-src="{{meal.attributes.mainPicture}}" ng-error-src="img/camera.svg">
+        <h2>
+          {{ meal.attributes.title }}
+        </h2>
+        <h4>
+          {{meal.attributes.created | mealtime}} - <span am-time-ago="meal.attributes.created"></span>
+        </h4>
+        <div class="meal-more">
+          <i class="fa fa-arrow-right"></i> Read More
+        </div>
+        <div class="meal-list-stats">
+          <i class="icon ion-thumbsup">
+            {{meal.attributes.likes.length}}
+          </i>
+          <i class="icon ion-chatbox">
+            {{meal.attributes.comments.length}}
+          </i>
+        </div>
+      </a>
+
+    </div>
+    <div class="no-favorites" ng-if="favorites.length == 0">
+      You haven't favorited anything yet. Get to it!
+    </div>
+
+	</ion-content >
+</ion-view >

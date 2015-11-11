@@ -1,0 +1,77 @@
+<!-- Standard -->
+
+<ion-view view-title="Sign Up"
+          hide-back-button="true" >
+	<ion-content padding="true"
+	             scroll="false" >
+
+		<!-- Form with floating labels -->
+		<form name="signupForm"
+		      novalidate="novalidate"
+		      ng-submit="signup(signupForm)" >
+			<ion-list >
+
+				<label class="item item-input item-floating-label"
+				       ng-class="{'has-error':signupForm.name.$invalid}" >
+					<span class="input-label" >User Name</span >
+					<input type="text"
+					       placeholder="User Name"
+					       name="name"
+					       ng-model="formData.name"
+					       ng-required="true" >
+				</label >
+
+
+					<div class="form-errors" ng-messages="signupForm.name.$error">
+					<div ng-messages-include="templates/form-errors.html"></div>
+					</div>
+
+
+				<label class="item item-input item-floating-label"
+				       ng-class="{'has-error':signupForm.email.$invalid}" >
+					<span class="input-label" >Email</span >
+					<input type="email"
+					       placeholder="Email"
+					       name="email"
+					       ng-model="formData.email"
+					       ng-required="true" >
+				</label >
+
+					<div class="form-errors" ng-messages="signupForm.email.$error">
+					<div ng-messages-include="templates/form-errors.html"></div>
+					</div>
+
+
+				<label class="item item-input item-floating-label"
+				       ng-class="{'has-error':signupForm.password.$invalid}" >
+					<span class="input-label" >Password</span >
+					<input type="password"
+					       placeholder="Password"
+					       name="password"
+					       ng-model="formData.password"
+					       ng-required="true"
+					       ng-minlength="6" >
+				</label >
+
+
+					<div class="form-errors" ng-messages="signupForm.password.$error">
+					<div ng-messages-include="templates/form-errors.html"></div>
+					<div class="form-error" ng-message="minlength">Min is 6 numbers</div>
+					</div>
+
+
+			</ion-list >
+			<button class="button button-royal button-block"
+			        type="submit" >Sign Up
+			</button >
+		</form >
+
+		<p class="text-center" >
+			You Have Account ?
+			<a nav-direction="exit"
+			   ui-sref="login" >Login
+			</a >
+		</p >
+
+	</ion-content >
+</ion-view >
