@@ -1,6 +1,7 @@
-**Soomdoha App**
+##Soomdoha App
+----
 
-***** TO DO *****
+####TO DO 
 
 A couple of things for you to do:
 
@@ -14,6 +15,7 @@ A couple of things for you to do:
 Best of luck and if you'd like any help with business planning or marketing strategy, my business partner has over 15 years of experience in that field and would happily help you.
 
 ** Must include for pictures to work on iOS
+```objective-c
 <key>NSAppTransportSecurity</key>
     <dict>
       <key>NSExceptionDomains</key>
@@ -27,6 +29,6 @@ Best of luck and if you'd like any help with business planning or marketing stra
         </dict>
       </dict>
     </dict>
-    
+```
     
     
