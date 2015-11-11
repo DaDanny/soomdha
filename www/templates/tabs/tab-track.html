@@ -1,0 +1,164 @@
+<ion-view view-title=" Add New Ads " >
+
+	<ion-nav-buttons side="primary" >
+			<button class="button button-icon ion-camera"
+			        ng-click="addPicture()" >
+			</button >
+	</ion-nav-buttons >
+
+	<ion-content >
+		<form name="createForm"
+		      novalidate=""
+		      ng-submit="trackMeal(createForm)"
+		      class="create-form" >
+			<ion-list >
+
+        <div class="padding" ng-click="addPicture()" >
+          <button class="button button-assertive button-block"
+                  type="submit" >Add Pictures
+          </button >
+        </div>
+
+				<!--  Ads Title -->
+
+				<label class="item item-input item-stacked-label"
+				       ng-class="{'has-error':createForm.title.$invalid}" >
+					<span class="input-label" >Title</span >
+					<input type="text"
+					       placeholder="Put Title Here"
+					       name="title"
+					       ng-model="formData.title"
+					       ng-required="true" >
+          <div class="form-errors" ng-if="showErrors"
+               ng-messages="createForm.title.$error">
+            <div ng-messages-include="templates/form-errors.html"></div>
+          </div >
+				</label >
+
+
+				<!-- Category -->
+
+				<label class="item item-input item-select"
+				       ng-class="{'has-error':createForm.category.$invalid}" >
+
+          <div class="input-label" >
+						Category
+            <div class="form-errors" ng-if="showErrors"
+                 ng-messages="createForm.category.$error">
+              <div ng-messages-include="templates/form-errors.html"></div>
+            </div >
+
+          </div >
+
+					<select name="category"
+					        ng-model="formData.category"
+					        ng-required="true" >
+						<option selected
+						        value="" >Choose
+						</option >
+						<option value="Cars" >Cars</option >
+						<option value="Property" >Property</option >
+						<option value="Finance" >Finance</option >
+						<option value="Services" >Services</option >
+						<option value="Construction" >Construction</option >
+						<option value="Jobs" >Jobs</option >
+						<option value="Men" >Men</option >
+						<option value="Women" >Women</option >
+						<option value="Kids" >Kids</option >
+						<option value="Food" >Food</option >
+						<option value="Birds" >Birds</option >
+						<option value="Animals" >Animals</option >
+						<option value="Furniture" >Furniture</option >
+						<option value="Numbers" >Numbers</option >
+						<option value="Agriculture" >Agriculture</option >
+						<option value="Education" >Education</option >
+						<option value="Electronics" >Electronics</option >
+						<option value="Phones" >Phones</option >
+						<option value="Camp" >Camp</option >
+					</select >
+
+				</label >
+
+                <!-- Description  -->
+
+				<label class="item item-input item-stacked-label"
+				       ng-class="{'has-error':createForm.desc.$invalid}" >
+					<span class="input-label" >Description</span >
+					<textarea type="text"
+					       placeholder="Ad Description"
+					       name="desc"
+					       ng-model="formData.desc"
+					       ng-required="true" class="item-desc">
+            </textarea>
+          <div class="form-errors" ng-if="showErrors"
+               ng-messages="createForm.desc.$error">
+            <div ng-messages-include="templates/form-errors.html"></div>
+          </div >
+				</label >
+
+
+				<!-- Price -->
+
+        <label class="item item-input item-stacked-label"
+               ng-class="{'has-error':createForm.price.$invalid}" >
+          <span class="input-label" >Price</span >
+          <input type="number"
+                 placeholder="Asking price"
+                 name="price"
+                 ng-model="formData.price"
+                 ng-required="true"
+                  value = 0>
+          <div class="form-errors" ng-if="showErrors"
+               ng-messages="createForm.price.$error">
+            <div ng-messages-include="templates/form-errors.html"></div>
+          </div >
+        </label >
+
+
+        <!-- Phone Number -->
+
+        <label class="item item-input item-stacked-label"
+               ng-class="{'has-error':createForm.phone.$invalid}" >
+          <span class="input-label" >Phone Number</span >
+          <input type="number"
+                 placeholder="Phone Number"
+                 name="phone"
+                 ng-model="formData.phone"
+                 ng-required="true"
+                 value = 0>
+          <div class="form-errors" ng-if="showErrors"
+               ng-messages="createForm.phone.$error">
+            <div ng-messages-include="templates/form-errors.html"></div>
+          </div >
+        </label >
+
+				<!--<label class="item item-input item-stacked-label"-->
+				       <!--ng-class="{'has-error':createForm.price.$invalid}">-->
+					<!--<span class="input-label" >Calories-->
+					<!--</span >-->
+					<!--<span class="calories" >{{formData.calories}}cal</span >-->
+
+				<!--</label >-->
+                <!---->
+				<!--<div class="form-errors"-->
+				     <!--ng-messages="createForm.calories.$error">-->
+				     <!--<div ng-messages-include="templates/form-errors.html"></div>-->
+				<!--</div >-->
+			</ion-list >
+
+			<div class="padding" ng-show="showPicture">
+				<div class="picture">
+					<img ng-src="{{pictureUrl}}" alt="" />
+				</div>
+			</div>
+
+
+
+			<div class="padding" >
+				<button class="button button-balanced button-block"
+				        type="submit" >List It
+				</button >
+			</div >
+		</form >
+	</ion-content >
+</ion-view >
